@@ -1,0 +1,85 @@
+/* CSS for file 1 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.register {
+    max-width: 500px; /* Increased max-width */
+    margin: 20px auto; /* Changed margin from 20px to 20px auto */
+    padding: 30px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Set width to 80% */
+}
+
+.register h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.register label i {
+    margin-right: 10px;
+}
+
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.register input[type="text"]:focus,
+.register input[type="email"]:focus,
+.register input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+.register input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Added margin */
+}
+
+.register input[type="submit"]:hover {
+    background-color: #0056b3;
+}
