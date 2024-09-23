@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Added to make nav appear on top */
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+nav {
+    width: 100%; /* Added to stretch navigation bar */
+    background-color: #333;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 90%; /* Added to make it responsive */
+    margin-top: 20px; /* Added to create space between nav and login container */
+}
+
+.login-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: calc(100% - 16px); /* Adjusted width to account for padding */
+    padding: 10px; /* Increased padding for better input appearance */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Added to include padding in width calculation */
+}
+
+.form-group button {
+    width: 100%;
+    padding: 12px; /* Increased padding for better button appearance */
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+
+.form-error {
+    color: red;
+    margin-top: 10px;
+}
