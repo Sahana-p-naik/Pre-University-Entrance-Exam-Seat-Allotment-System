@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="style2.css" rel="stylesheet" type="text/css">
+    <nav>
+
+        <a href="home.html">Home</a>
+           
+    </nav>
+    <script>
+        // Function to validate password and confirm password fields
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password != confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+
+        // Function to update the hidden input field with the selected secret question
+        function updateSecretQuestion() {
+            var selectedOption = document.getElementById("secretQuestion").value;
+            document.getElementById("selectedSecretQuestion").value = selectedOption;
+
+            // Show or hide the input field based on the selected option
+            var inputField = document.getElementById("secretAnswerInput");
+            if (selectedOption === "color_name" || selectedOption === "fav_movie" || selectedOption === "fav_food") {
+                inputField.style.display = "block";
+                inputField.setAttribute("placeholder", "Enter your answer");
+                inputField.setAttribute("name", selectedOption); // Set input field name based on selected option
+            } else {
+                inputField.style.display = "none";
+                inputField.removeAttribute("placeholder");
+                inputField.removeAttribute("name");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="register">
+        <h1>Registration</h1>
+        <form action="register.php" method="POST" onsubmit="return validatePassword()">
+            <label for="name">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="name" placeholder="Name" id="name" required>
+            <!-- New input field for Registration Number -->
+            <label for="reg_number">
+                <i class="fas fa-id-card"></i>
+            </label>
+            <input type="text" name="reg_number" placeholder="Registration Number" id="reg_number" required>
+            <!-- End of new input field -->
+            <label for="mobile">
+                <i class="fas fa-mobile-alt"></i>
+            </label>
+            <input type="text" name="mobile" placeholder="Mobile Number" id="mobile" required>
+            <label for="email">
+                <i class="fas fa-envelope"></i>
+            </label>
+            <input type="email" name="email" placeholder="Email" id="email" required>
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="password" placeholder="Password" id="password" required>
+            <!-- New input field for Confirm Password -->
+            <label for="confirmPassword">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword" required>
+            <!-- End of new input field -->
+            <!-- New input field for Secret Question -->
+            <label for="secretQuestion">
+                <i class="fas fa-question"></i>
+            </label>
+            <select name="secretQuestion" id="secretQuestion" required onchange="updateSecretQuestion()">
+                <option value="" disabled selected>Select Secret Question</option>
+                <option value="color_name">What is your favorite colour?</option>
+                <option value="fav_movie">Which is your favorite movie?</option>
+                <option value="fav_food">Which is your favorite food?</option>
+            </select>
+            <!-- Input field for secret answer -->
+            <input type="text" id="secretAnswerInput" style="display: none;" required>
+            <!-- Hidden input field to store the selected secret question -->
+            <input type="hidden" name="selectedSecretQuestion" id="selectedSecretQuestion">
+            <!-- End of new input field -->
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
