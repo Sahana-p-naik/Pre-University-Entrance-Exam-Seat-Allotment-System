@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Seat Allotment System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom right, #b583d8, #e265e2); /* Gradient Background */
+            color: #fff; /* Text color */
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black navbar */
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
+            color: #fff; /* Text color on hover */
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: #fff;
+            padding: 14px 20px;
+            background-color: inherit;
+            margin: 0;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black dropdown */
+            width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding-top: 7px; /* Adjusted padding */
+            padding-bottom: 7px; /* Adjusted padding */
+        }
+        .navbar .dropdown-content a {
+            float: none;
+            color: #fff;
+            padding: 5px 15px; /* Adjusted padding */
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        .navbar .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
+            color: #fff; /* Text color on hover */
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Semi-transparent white shadow */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .container img {
+            display: block;
+            margin: 0 auto;
+            width: 100%; /* Full width image */
+            max-width: 600px; /* Maximum width */
+            height: auto;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Semi-transparent white shadow */
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button-container button:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
+            color: #fff; /* Text color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Student</button>
+            <div class="dropdown-content">
+                <a href="register.html">Register</a>
+                <a href="login.html">Login</a>
+                <!-- Button for fetching results (Initially hidden) -->
+                <button id="fetchResultBtn" style="display: none;" onclick="window.location.href = 'fetch_result.html';">See Result</button>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="showAdminPasswordPrompt()">Admin</button>
+            <div class="dropdown-content">
+                <a href="result.html" id="seeResultBtn" style="display:none;">See Result</a>
+                <a href="#" id="announceResultBtn" style="display:none;">Announce Result</a>
+                <a href="#" id="discardResultBtn" style="display:none;">Discard Result</a> <!-- Added Discard Result Button -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>SRS PRE UNIVERSITY COLLEGE</h1>
+        <p>Welcome to SRS Entrance Examination Portal! Aspiring students, we are thrilled to invite you to embark on your academic journey with us. At SRS Pre University, we pride ourselves on offering a diverse range of programs spanning science, commerce, arts, diploma, tailored to nurture your unique talents and aspirations. Our entrance examination serves as the gateway to this enriching experience, designed to assess your readiness for the academic challenges ahead. Explore our website to discover detailed information about the examination format, eligibility criteria, programs offered, admission process, and more. We look forward to welcoming you into our vibrant community of learners and achievers!</p>
+        <img src="https://media.mehrnews.com/d/2018/07/31/4/2849178.jpg" alt="Description of your image">
+        <div class="button-container">
+            <button id="fetchResultBtn" style="display: none;" onclick="window.location.href = 'fetch_result.html';">See Result</button>
+        </div>
+    </div>
+
+    <script>
+        function showAdminPasswordPrompt() {
+            var password = prompt("Enter Admin Password:");
+            if (password === "164") {
+                document.getElementById("seeResultBtn").style.display = "block";
+                document.getElementById("announceResultBtn").style.display = "block";
+                document.getElementById("discardResultBtn").style.display = "block";
+            } else {
+                alert("You are not an Admin!");
+            }
+        }
+
+        document.getElementById("announceResultBtn").addEventListener("click", function() {
+            // Display the fetch result button in student section
+            document.getElementById("fetchResultBtn").style.display = "block";
+        });
+
+        document.getElementById("discardResultBtn").addEventListener("click", function() {
+            // Hide the fetch result button in student section
+            document.getElementById("fetchResultBtn").style.display = "none";
+        });
+    </script>
+</body>
+</html>
