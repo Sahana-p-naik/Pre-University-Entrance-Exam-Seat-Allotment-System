@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter the Course Details</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    form {
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 15l6-9H4l6 9z" fill="%23333"/></svg>');
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: center;
+        background-size: 12px;
+    }
+    input[type="submit"] {
+        width: 100%;
+        background-color: #3571d2;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+        background-color: #3f64d4;
+    }
+</style>
+</head>
+<body>
+   
+<div class="container">
+    <h2>Enter the Course Details</h2>
+    <form action="submit.php" method="post">
+        <label for="Reg_number">Register Number:</label>
+        <input type="text" id="Reg_number" name="Reg_number" placeholder="Enter Register Number" required>
+    
+        <label for="exam_rank">Exam Rank:</label>
+        <input type="number" id="exam_rank" name="exam_rank" placeholder="Enter Exam Rank" required>
+    
+        <label for="course_name">Course Name:</label>
+        <select id="course_name" name="course_name" onchange="generateCourseId(this.value)" required>
+            <option value="">Select Course</option>
+            <option value="Science">Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Arts">Arts</option>
+            <option value="Diploma">Diploma</option>
+        </select>
+    
+        <label for="course_id">Course ID:</label>
+        <input type="text" id="course_id" name="course_id" readonly required>
+    
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    function generateCourseId(courseName) {
+        let courseId = "";
+        if (courseName === "Science") {
+            courseId = "24SCN";
+        } else if (courseName === "Commerce") {
+            courseId = "24COM";
+        } else if (courseName === "Arts") {
+            courseId = "24ART";
+        } else if (courseName === "Diploma") {
+            courseId = "24DIP";
+        }
+        document.getElementById("course_id").value = courseId;
+    }
+</script>
+
+</body>
+</html>
