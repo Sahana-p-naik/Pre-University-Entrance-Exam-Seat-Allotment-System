@@ -4,7 +4,7 @@
 // Database connection parameters
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
-$DATABASE_PASS = '********';
+$DATABASE_PASS = 'Supmysql@2004';
 $DATABASE_NAME = 'dbms_project';
 
 // Attempt to establish a connection to the database
